@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Ensure only the opening screen is visible first
     document.getElementById("opening-screen").style.display = "flex";
-    document.getElementById("help-screen").style.display = "none";
-    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("help-screen").classList.add("hidden");
+    document.getElementById("dashboard").classList.add("hidden");
 });
 
-// Start game & move to the dashboard
+// Start Game
 function startGame() {
     let openingScreen = document.getElementById("opening-screen");
     let dashboard = document.getElementById("dashboard");
@@ -13,32 +12,28 @@ function startGame() {
     let statsContainer = document.getElementById("stats-container");
     let exerciseButtons = document.getElementById("exercise-buttons");
 
-    openingScreen.classList.add("fade-out");
+    openingScreen.style.display = "none";
+    dashboard.style.display = "flex";
 
     setTimeout(() => {
-        openingScreen.style.display = "none";
-        dashboard.style.display = "flex";
-        dashboard.classList.add("fade-in");
-
-        // Show "Synchronizing stats..." for 2 seconds, then reveal stats
-        setTimeout(() => {
-            loadingMessage.style.display = "none";
-            statsContainer.style.display = "block";
-            exerciseButtons.style.display = "block";
-        }, 2000);
-    }, 1000);
+        loadingMessage.style.display = "none";
+        statsContainer.style.display = "block";
+        exerciseButtons.style.display = "block";
+    }, 2000);
 }
 
-// Show help screen
+// Show Help
 function showHelp() {
-    document.getElementById("opening-screen").style.display = "none";
-    document.getElementById("help-screen").style.display = "flex";
+    let helpScreen = document.getElementById("help-screen");
+    helpScreen.style.opacity = "1";
+    helpScreen.style.visibility = "visible";
 }
 
-// Close help & return to opening screen
+// Close Help
 function closeHelp() {
-    document.getElementById("help-screen").style.display = "none";
-    document.getElementById("opening-screen").style.display = "flex";
+    let helpScreen = document.getElementById("help-screen");
+    helpScreen.style.opacity = "0";
+    helpScreen.style.visibility = "hidden";
 }
 
 // XP & Level System
