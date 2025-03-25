@@ -21,6 +21,19 @@
             width: 300px;
             border-radius: 10px;
         }
+        button {
+            background-color: #ffcc00;
+            color: #111;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ff9900;
+        }
     </style>
 </head>
 <body>
@@ -28,68 +41,30 @@
     <p>Train like a Hunter. Level up your strength.</p>
     
     <div class="level-box">
-        <h2>Level 1 - E-Rank Warmup</h2>
-        <p>✅ 10 Push-Ups</p>
-        <p>✅ 15 Squats</p>
-        <p>✅ 20 Jumping Jacks</p>
+        <h2 id="level-text">Level: 1</h2>
+        <p id="xp-text">XP: 0</p>
     </div>
+
+    <button onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
+    <button onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
+    <button onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
+
+    <script>
+        let xp = 0;
+        let level = 1;
+
+        function gainXP(amount) {
+            xp += amount;
+            document.getElementById("xp-text").innerText = "XP: " + xp;
+
+            if (xp >= 100) {
+                level++;
+                xp = 0;
+                document.getElementById("level-text").innerText = "Level: " + level;
+                document.getElementById("xp-text").innerText = "XP: " + xp;
+                alert("🎉 You leveled up to Level " + level + "!");
+            }
+        }
+    </script>
 </body>
 </html>
-<h1>🔥 Solo Leveling Fitness 🔥</h1>
-<p id="level-text">You are at Level 1</p>
-<button onclick="levelUp()">💪 Level Up</button>
-
-<script>
-    let level = 1;
-    function levelUp() {
-        level++;
-        document.getElementById("level-text").innerText = "You are at Level " + level;
-    }
-</script>
-<h1>🔥 Solo Leveling Fitness 🔥</h1>
-<p id="level-text">Level: 1</p>
-<p id="xp-text">XP: 0</p>
-<button onclick="gainXP()">🏋️ Gain XP</button>
-
-<script>
-    let xp = 0;
-    let level = 1;
-
-    function gainXP() {
-        xp += 10;
-        document.getElementById("xp-text").innerText = "XP: " + xp;
-
-        if (xp >= 100) {
-            level++;
-            xp = 0;
-            document.getElementById("level-text").innerText = "Level: " + level;
-            document.getElementById("xp-text").innerText = "XP: " + xp;
-            alert("🎉 You leveled up to Level " + level + "!");
-        }
-    }
-</script>
-<h1>🔥 Solo Leveling Fitness 🔥</h1>
-<p id="level-text">Level: 1</p>
-<p id="xp-text">XP: 0</p>
-
-<button onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
-<button onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
-<button onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
-
-<script>
-    let xp = 0;
-    let level = 1;
-
-    function gainXP(amount) {
-        xp += amount;
-        document.getElementById("xp-text").innerText = "XP: " + xp;
-
-        if (xp >= 100) {
-            level++;
-            xp = 0;
-            document.getElementById("level-text").innerText = "Level: " + level;
-            document.getElementById("xp-text").innerText = "XP: " + xp;
-            alert("🎉 You leveled up to Level " + level + "!");
-        }
-    }
-</script>
