@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Ensure only the opening screen is visible at first
+    // Ensure only the opening screen is visible first
     document.getElementById("opening-screen").style.display = "flex";
     document.getElementById("help-screen").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
@@ -20,7 +20,7 @@ function startGame() {
         dashboard.style.display = "flex";
         dashboard.classList.add("fade-in");
 
-        // Show "Synchronizing stats…" for 2 seconds, then reveal stats
+        // Show "Synchronizing stats..." for 2 seconds, then reveal stats
         setTimeout(() => {
             loadingMessage.style.display = "none";
             statsContainer.style.display = "block";
@@ -31,25 +31,14 @@ function startGame() {
 
 // Show help screen
 function showHelp() {
-    let openingScreen = document.getElementById("opening-screen");
-    let helpScreen = document.getElementById("help-screen");
-
-    openingScreen.style.display = "none";
-    helpScreen.style.display = "flex";
-    helpScreen.classList.add("fade-in");
+    document.getElementById("opening-screen").style.display = "none";
+    document.getElementById("help-screen").style.display = "flex";
 }
 
-// Close help & return to opening screen (Fixed Bug)
+// Close help & return to opening screen
 function closeHelp() {
-    let helpScreen = document.getElementById("help-screen");
-    let openingScreen = document.getElementById("opening-screen");
-
-    helpScreen.classList.remove("fade-in"); // Remove fade-in effect before hiding
-    setTimeout(() => {
-        helpScreen.style.display = "none";
-        openingScreen.style.display = "flex";
-        openingScreen.classList.add("fade-in");
-    }, 300);
+    document.getElementById("help-screen").style.display = "none";
+    document.getElementById("opening-screen").style.display = "flex";
 }
 
 // XP & Level System
