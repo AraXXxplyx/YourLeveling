@@ -63,6 +63,31 @@ body {
     display: none;
     opacity: 0;
 }
+/* Hide screens properly to prevent flashing */
+#help-screen, #dashboard {
+    display: none;  /* Completely hides elements */
+    opacity: 0;  /* Makes sure they are fully invisible */
+}
+
+/* Smooth fade-in animation */
+.fade-in {
+    animation: fadeIn 1.5s forwards;
+}
+
+/* Fade Out animation */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* Define fade animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
 
 
 @keyframes fadeOut {
