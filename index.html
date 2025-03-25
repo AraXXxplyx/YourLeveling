@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Leveling</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 🟣 Opening Screen -->
+    <!-- 🟣 Opening Screen (No Stats) -->
     <div id="opening-screen">
         <h1 id="system-message">[SYSTEM MESSAGE]</h1>
         <p id="intro-text">You have been chosen as a Player.</p>
@@ -26,24 +26,20 @@
     <!-- 🔥 Dashboard (Hidden Initially) -->
     <div id="dashboard">
         <h1>🔥 Your Leveling Dashboard 🔥</h1>
-        <p>Train like a Hunter. Level up your strength.</p>
-
-        <div class="level-box">
+        <p id="loading-message">Synchronizing stats…</p> <!-- This appears first -->
+        
+        <div id="stats-container" class="hidden">
             <h2 id="level-text">Level: 1</h2>
             <p id="xp-text">XP: 0</p>
         </div>
 
-        <button class="button" onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
-        <button class="button" onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
-        <button class="button" onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
+        <div id="exercise-buttons" class="hidden">
+            <button class="button" onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
+            <button class="button" onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
+            <button class="button" onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
+        </div>
     </div>
 
-    <script src="script.js"></script> <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-    <script src="script.js"></script> <!-- Link to JavaScript -->
-</body>
-</html>
-
