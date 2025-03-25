@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #0a0014; /* Dark Mystic Purple */
+    background-color: #0a0014;
     color: white;
     margin: 0;
     padding: 0;
@@ -10,6 +10,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Hide sections before they load */
+.hidden {
+    display: none;
 }
 
 /* 🔮 Opening Screen */
@@ -25,20 +30,9 @@ body {
     animation: fadeIn 2s ease-in-out;
 }
 
-#system-message {
-    font-size: 28px;
-    color: #ffcc00;
-    text-shadow: 0px 0px 15px rgba(255, 204, 0, 1);
-    animation: glow 1.5s infinite alternate;
-}
-
-#intro-text {
-    font-size: 20px;
-    background: linear-gradient(90deg, #ff00ff, #9900cc);
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 0px 0px 8px rgba(255, 0, 255, 0.5);
-    animation: textGlow 1.5s infinite alternate;
+/* 🔥 Dashboard (Hidden at First) */
+#dashboard {
+    display: none;
 }
 
 /* Buttons */
@@ -59,33 +53,13 @@ body {
     transform: scale(1.1);
 }
 
-/* 🔥 Dashboard (Hidden Initially) */
-#dashboard {
-    display: none;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-}
-
-.level-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    margin: 20px auto;
-    width: 300px;
-    border-radius: 10px;
-}
-
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes glow {
-    from { text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8); }
-    to { text-shadow: 0px 0px 25px rgba(255, 204, 0, 1); }
-}
-
-@keyframes textGlow {
-    from { text-shadow: 0px 0px 8px rgba(255, 0, 255, 0.5); }
-    to { text-shadow: 0px 0px 15px rgba(255, 0, 255, 1); }
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
