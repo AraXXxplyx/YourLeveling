@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Only show the opening screen on first load
+    // Ensure only the opening screen is visible first
     document.getElementById("opening-screen").style.display = "flex";
     document.getElementById("help-screen").classList.add("hidden");
     document.getElementById("dashboard").classList.add("hidden");
 });
+
 
 // Start game & move to the dashboard
 function startGame() {
