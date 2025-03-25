@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- 🟣 Opening Screen (No Stats) -->
+    <!-- 🟣 Opening Screen (Only This Should Load First) -->
     <div id="opening-screen">
         <h1 id="system-message">[SYSTEM MESSAGE]</h1>
         <p id="intro-text">You have been chosen as a Player.</p>
@@ -17,16 +17,16 @@
     </div>
 
     <!-- 🟣 Help Screen (Hidden by Default) -->
-    <div id="help-screen">
+    <div id="help-screen" class="hidden">
         <h2>What is "Your Leveling"?</h2>
         <p>This is a fitness training program inspired by RPG leveling systems. Complete workouts, earn XP, and level up!</p>
         <button class="button" onclick="closeHelp()">⬅ Back</button>
     </div>
 
-    <!-- 🔥 Dashboard (Hidden Initially) -->
-    <div id="dashboard">
+    <!-- 🔥 Dashboard (Fully Hidden at First) -->
+    <div id="dashboard" class="hidden">
         <h1>🔥 Your Leveling Dashboard 🔥</h1>
-        <p id="loading-message">Synchronizing stats…</p> <!-- This appears first -->
+        <p id="loading-message">Synchronizing stats…</p> <!-- Appears first -->
         
         <div id="stats-container" class="hidden">
             <h2 id="level-text">Level: 1</h2>
