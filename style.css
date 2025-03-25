@@ -58,6 +58,12 @@ body {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+/* Make sure hidden elements never flash on load */
+#help-screen, #dashboard {
+    display: none;
+    opacity: 0;
+}
+
 
 @keyframes fadeOut {
     from { opacity: 1; }
