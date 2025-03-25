@@ -94,3 +94,31 @@ body {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+/* Ensure help screen & dashboard are fully hidden at start */
+#help-screen, #dashboard {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn 1.5s forwards;
+    display: block !important;
+}
+
+/* Fade-out animation */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* Define fade animations */
+@keyframes fadeIn {
+    from { opacity: 0; visibility: visible; }
+    to { opacity: 1; visibility: visible; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; visibility: hidden; }
+}
+
