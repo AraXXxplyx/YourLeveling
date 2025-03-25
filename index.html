@@ -8,37 +8,35 @@
 </head>
 <body>
 
-    <div id="container">
-        <!-- 🟣 Opening Screen (Only This Should Load First) -->
-        <div id="opening-screen">
-            <h1 id="system-message">[SYSTEM MESSAGE]</h1>
-            <p id="intro-text">You have been chosen as a Player.</p>
-            <button class="button" onclick="startGame()">▶ Continue</button>
-            <button class="button" onclick="showHelp()">❓ Help</button>
+    <!-- 🟣 Opening Screen (Only This Should Load First) -->
+    <div id="opening-screen">
+        <h1 id="system-message">[SYSTEM MESSAGE]</h1>
+        <p id="intro-text">You have been chosen as a Player.</p>
+        <button class="button" onclick="startGame()">▶ Continue</button>
+        <button class="button" onclick="showHelp()">❓ Help</button>
+    </div>
+
+    <!-- 🟣 Help Screen (Hidden by Default) -->
+    <div id="help-screen" class="hidden">
+        <h2>What is "Your Leveling"?</h2>
+        <p>This is a fitness training program inspired by RPG leveling systems. Complete workouts, earn XP, and level up!</p>
+        <button class="button" onclick="closeHelp()">⬅ Back</button>
+    </div>
+
+    <!-- 🔥 Dashboard (Fully Hidden at First) -->
+    <div id="dashboard" class="hidden">
+        <h1>🔥 Your Leveling Dashboard 🔥</h1>
+        <p id="loading-message">Synchronizing stats…</p> <!-- Appears first -->
+
+        <div id="stats-container" class="hidden">
+            <h2 id="level-text">Level: 1</h2>
+            <p id="xp-text">XP: 0</p>
         </div>
 
-        <!-- 🟣 Help Screen (Hidden by Default) -->
-        <div id="help-screen" class="hidden">
-            <h2>What is "Your Leveling"?</h2>
-            <p>This is a fitness training program inspired by RPG leveling systems. Complete workouts, earn XP, and level up!</p>
-            <button class="button" onclick="closeHelp()">⬅ Back</button>
-        </div>
-
-        <!-- 🔥 Dashboard (Fully Hidden at First) -->
-        <div id="dashboard" class="hidden">
-            <h1>🔥 Your Leveling Dashboard 🔥</h1>
-            <p id="loading-message">Synchronizing stats…</p> <!-- Appears first -->
-            
-            <div id="stats-container">
-                <h2 id="level-text">Level: 1</h2>
-                <p id="xp-text">XP: 0</p>
-            </div>
-
-            <div id="exercise-buttons">
-                <button class="button" onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
-                <button class="button" onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
-                <button class="button" onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
-            </div>
+        <div id="exercise-buttons" class="hidden">
+            <button class="button" onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
+            <button class="button" onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
+            <button class="button" onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
         </div>
     </div>
 
