@@ -8,21 +8,22 @@
 </head>
 <body>
 
-    <!-- Opening Screen -->
+    <!-- 🟣 Opening Screen -->
     <div id="opening-screen">
-        <h1 id="opening-text">Welcome. You have been chosen as a Player.</h1>
+        <h1 id="system-message">[SYSTEM MESSAGE]</h1>
+        <p id="intro-text">You have been chosen as a Player.</p>
         <button class="button" onclick="startGame()">▶ Continue</button>
         <button class="button" onclick="showHelp()">❓ Help</button>
     </div>
 
-    <!-- Help Screen -->
+    <!-- 🟣 Help Screen (Hidden by Default) -->
     <div id="help-screen">
         <h2>What is "Your Leveling"?</h2>
         <p>This is a fitness training program inspired by RPG leveling systems. Complete workouts, earn XP, and level up!</p>
         <button class="button" onclick="closeHelp()">⬅ Back</button>
     </div>
 
-    <!-- Dashboard -->
+    <!-- 🔥 Dashboard (Hidden Initially) -->
     <div id="dashboard">
         <h1>🔥 Your Leveling Dashboard 🔥</h1>
         <p>Train like a Hunter. Level up your strength.</p>
@@ -36,6 +37,11 @@
         <button class="button" onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
         <button class="button" onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
     </div>
+
+    <script src="script.js"></script> <!-- Link to JavaScript -->
+</body>
+</html>
+
 
     <script src="script.js"></script> <!-- Link to JavaScript -->
 </body>
