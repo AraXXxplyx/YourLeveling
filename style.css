@@ -1,23 +1,23 @@
-/* Button styling */
+/* Button styling - Darker & Longer */
 .button {
-    background: linear-gradient(45deg, #000d33, #002266); /* Darker blue shades */
-    border: none;
+    background: linear-gradient(45deg, #000a1f, #001a33); /* Very dark blue */
+    border: 2px solid #00264d; /* Slight outline */
     color: white;
-    padding: 15px 60px;  /* Increased horizontal padding for longer buttons */
-    font-size: 20px;  /* Bigger text */
+    padding: 15px 80px;  /* Increased horizontal padding */
+    font-size: 22px;  /* Bigger text */
     cursor: pointer;
     margin: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: 0.3s;
-    box-shadow: 0px 0px 15px #001a4d; /* Subtle glow effect */
+    box-shadow: 0px 0px 20px rgba(0, 26, 77, 0.8); /* Stronger blue glow */
     font-weight: bold;
-    width: 300px;  /* Longer buttons */
+    width: 350px;  /* Longer buttons */
     text-align: center;
 }
 
 /* Hover effect */
 .button:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 25px #0044cc; /* Slightly brighter glow on hover */
-    background: linear-gradient(45deg, #001a4d, #003399);
+    transform: scale(1.07);
+    box-shadow: 0px 0px 30px rgba(0, 64, 255, 1); /* Brighter neon glow */
+    background: linear-gradient(45deg, #00264d, #004080);
 }
