@@ -1,30 +1,19 @@
-let xp = 0;
-let level = 1;
-
 function startGame() {
-    document.getElementById("opening-screen").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-}
+    // Fade out the opening screen
+    document.getElementById("opening-screen").style.animation = "fadeOut 1s forwards";
 
-function showHelp() {
-    document.getElementById("opening-screen").style.display = "none";
-    document.getElementById("help-screen").style.display = "block";
-}
+    // Wait 1 sec, then show dashboard smoothly
+    setTimeout(() => {
+        document.getElementById("opening-screen").style.display = "none";
+        let dashboard = document.getElementById("dashboard");
+        dashboard.style.display = "block";
+        dashboard.style.animation = "fadeIn 1.5s forwards";
 
-function closeHelp() {
-    document.getElementById("help-screen").style.display = "none";
-    document.getElementById("opening-screen").style.display = "flex";
-}
-
-function gainXP(amount) {
-    xp += amount;
-    document.getElementById("xp-text").innerText = "XP: " + xp;
-
-    if (xp >= 100) {
-        level++;
-        xp = 0;
-        document.getElementById("level-text").innerText = "Level: " + level;
-        document.getElementById("xp-text").innerText = "XP: " + xp;
-        alert("🎉 You leveled up to Level " + level + "!");
-    }
+        // Show "Synchronizing stats..." for 2 sec before revealing stats
+        setTimeout(() => {
+            document.getElementById("loading-message").style.display = "none";
+            document.getElementById("stats-container").classList.remove("hidden");
+            document.getElementById("exercise-buttons").classList.remove("hidden");
+        }, 2000);
+    }, 1000);
 }
