@@ -4,36 +4,30 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("dashboard").classList.add("hidden");
 });
 
-// Start Game
+// Start game & move to the dashboard
 function startGame() {
     let openingScreen = document.getElementById("opening-screen");
     let dashboard = document.getElementById("dashboard");
     let loadingMessage = document.getElementById("loading-message");
-    let statsContainer = document.getElementById("stats-container");
-    let exerciseButtons = document.getElementById("exercise-buttons");
 
-    openingScreen.style.display = "none";
-    dashboard.style.display = "flex";
+    openingScreen.classList.add("fade-out");
 
     setTimeout(() => {
-        loadingMessage.style.display = "none";
-        statsContainer.style.display = "block";
-        exerciseButtons.style.display = "block";
-    }, 2000);
+        openingScreen.style.display = "none";
+        dashboard.style.display = "flex";
+    }, 1000);
 }
 
-// Show Help
+// Show Help Screen
 function showHelp() {
     let helpScreen = document.getElementById("help-screen");
-    helpScreen.style.opacity = "1";
-    helpScreen.style.visibility = "visible";
+    helpScreen.classList.add("show");
 }
 
-// Close Help
+// Close Help Screen
 function closeHelp() {
     let helpScreen = document.getElementById("help-screen");
-    helpScreen.style.opacity = "0";
-    helpScreen.style.visibility = "hidden";
+    helpScreen.classList.remove("show");
 }
 
 // XP & Level System
