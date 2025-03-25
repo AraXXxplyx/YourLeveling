@@ -1,129 +1,29 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: radial-gradient(circle, #001a33, #000a1f);
-    color: white;
-    margin: 0;
-    padding: 0;
+/* Fade-in effect */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
 }
 
-/* Opening Screen */
-#opening-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* Title & Subtitle */
-#system-message {
-    font-size: 42px;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 0px 0px 20px rgba(255, 255, 0, 1); /* Bright glow */
-    margin-bottom: 15px;
+/* Fade-out effect */
+.fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
 }
 
-#intro-text {
-    font-size: 28px;
-    font-weight: bold;
-    text-shadow: 0px 0px 15px rgba(255, 215, 0, 1); /* Softer glow */
-    margin-bottom: 30px;
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
 }
 
-/* Synchronizing Message */
-#loading-message {
-    font-size: 18px;
-    color: #ffcc00;
-    animation: fadeText 2s infinite alternate;
+/* Glowing effect when leveling up */
+.level-up-glow {
+    animation: levelGlow 1.5s infinite alternate;
 }
 
-/* Buttons */
-.button {
-    background: linear-gradient(45deg, #000a1f, #001a33);
-    border: 2px solid #00264d;
-    color: white;
-    padding: 18px 100px;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 15px;
-    border-radius: 8px;
-    transition: 0.3s;
-    box-shadow: 0px 0px 20px rgba(0, 26, 77, 0.8);
-    width: 380px;
-    text-align: center;
-}
-
-/* Hover Effect */
-.button:hover {
-    transform: scale(1.07);
-    box-shadow: 0px 0px 30px rgba(0, 128, 255, 1);
-    background: linear-gradient(45deg, #00264d, #004080);
-}
-
-/* Dashboard */
-#dashboard {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Exercise Buttons */
-#exercise-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Help Screen */
-#help-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 600px;
-    background: rgba(0, 10, 31, 0.95);
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 25px rgba(0, 64, 255, 0.8);
-    text-align: center;
-    font-size: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-}
-
-/* Show Help Box */
-#help-screen.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Help Title */
-#help-screen h2 {
-    margin-bottom: 15px;
-    font-size: 24px;
-    color: #ffcc00;
-}
-
-/* Help Text */
-#help-screen p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Back Button Styling */
-#help-screen .button {
-    width: 250px;
+@keyframes levelGlow {
+    0% { text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff6600; }
+    100% { text-shadow: 0 0 20px #ff6600, 0 0 30px #ffcc00; }
 }
