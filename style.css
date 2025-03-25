@@ -28,12 +28,24 @@ body {
     100% { opacity: 0.6; }
 }
 
-/* Hidden class (so elements don’t show on load) */
+/* Hidden elements (Dashboard & Help should start hidden, NOT the opening screen) */
 .hidden {
     display: none;
     opacity: 0;
     visibility: hidden;
 }
+
+/* Fix for the opening screen */
+#opening-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 1; /* Ensure it's visible */
+    visibility: visible;
+}
+
 
 /* Fade-in effect */
 .fade-in {
