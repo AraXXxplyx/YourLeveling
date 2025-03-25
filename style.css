@@ -15,8 +15,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    opacity: 1; /* Ensure it's visible */
+    visibility: visible;
 }
 
+/* System message animation */
 #system-message {
     font-size: 24px;
     color: #ffcc00;
@@ -28,37 +31,35 @@ body {
     100% { opacity: 0.6; }
 }
 
-/* Hidden elements (Dashboard & Help should start hidden, NOT the opening screen) */
+/* Hidden elements */
 .hidden {
-    display: none;
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s;
 }
 
-/* Fix for the opening screen */
-#opening-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    opacity: 1; /* Ensure it's visible */
-    visibility: visible;
-}
-
-
-/* Fade-in effect */
+/* Smooth fade-in effect */
 .fade-in {
-    animation: fadeIn 1s forwards;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: fadeIn 1s forwards;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; visibility: hidden; }
     to { opacity: 1; visibility: visible; }
+}
+
+/* Smooth fade-out effect */
+.fade-out {
+    animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; visibility: hidden; }
 }
 
 /* Button styling */
