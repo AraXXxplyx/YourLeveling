@@ -8,26 +8,26 @@
 </head>
 <body>
 
-    <!-- 🟣 Opening Screen -->
+    <!-- Opening Screen -->
     <div id="opening-screen">
-        <h1 id="system-message">[SYSTEM MESSAGE]</h1>
+        <h1 id="system-message">[ SYSTEM MESSAGE ]</h1>
         <p id="intro-text">You have been chosen as a Player.</p>
         <button class="button" onclick="startGame()">▶ Continue</button>
         <button class="button" onclick="showHelp()">❓ Help</button>
     </div>
 
-    <!-- 🟣 Help Screen (Hidden by Default) -->
+    <!-- Help Screen -->
     <div id="help-screen" class="hidden">
         <h2>What is "Your Leveling"?</h2>
-        <p>This is a fitness training program inspired by RPG leveling systems. Complete workouts, earn XP, and level up!</p>
+        <p>It's a workout system where you level up by completing exercises.</p>
         <button class="button" onclick="closeHelp()">⬅ Back</button>
     </div>
 
-    <!-- 🔥 Dashboard (Fully Hidden at First) -->
+    <!-- Dashboard -->
     <div id="dashboard" class="hidden">
         <h1>🔥 Your Leveling Dashboard 🔥</h1>
         <p id="loading-message">Synchronizing stats…</p> 
-        
+
         <div id="stats-container" class="hidden">
             <h2 id="level-text">Level: 1</h2>
             <p id="xp-text">XP: 0</p>
