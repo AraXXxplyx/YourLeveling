@@ -1,78 +1,23 @@
-/* General styles */
-body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background-color: #000010; /* Dark Blue Black */
-    color: white;
-    margin: 0;
-    padding: 0;
-}
-
-/* System message glowing text */
-#system-message {
-    font-size: 24px;
-    color: #00ccff;
-    text-shadow: 0px 0px 15px #00ccff;
-    animation: glowText 1.5s infinite alternate;
-}
-
-@keyframes glowText {
-    0% { text-shadow: 0px 0px 15px #00ccff; }
-    100% { text-shadow: 0px 0px 30px #0099ff; }
-}
-
-/* Glow effect for headers */
-.glow {
-    text-shadow: 0px 0px 20px #0077ff;
-}
-
-/* Hidden elements */
-.hidden {
-    display: none;
-}
-
-/* Page fade-in effect */
-.fade-in {
-    animation: fadeIn 0.8s forwards;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; visibility: hidden; }
-    to { opacity: 1; visibility: visible; }
-}
-
 /* Button styling */
 .button {
-    background: linear-gradient(45deg, #002266, #0055ff);
+    background: linear-gradient(45deg, #000d33, #002266); /* Darker blue shades */
     border: none;
     color: white;
-    padding: 12px 24px;
-    font-size: 18px;
+    padding: 15px 60px;  /* Increased horizontal padding for longer buttons */
+    font-size: 20px;  /* Bigger text */
     cursor: pointer;
     margin: 12px;
     border-radius: 6px;
     transition: 0.3s;
-    box-shadow: 0px 0px 15px #0033cc;
+    box-shadow: 0px 0px 15px #001a4d; /* Subtle glow effect */
     font-weight: bold;
+    width: 300px;  /* Longer buttons */
+    text-align: center;
 }
 
+/* Hover effect */
 .button:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 25px #00ccff;
-}
-
-/* Dashboard loading animation */
-#loading-message {
-    font-size: 18px;
-    color: #0099ff;
-    animation: fadeText 2s infinite alternate;
-}
-
-@keyframes fadeText {
-    0% { opacity: 0.4; }
-    100% { opacity: 1; }
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px #0044cc; /* Slightly brighter glow on hover */
+    background: linear-gradient(45deg, #001a4d, #003399);
 }
