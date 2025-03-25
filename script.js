@@ -39,14 +39,17 @@ function showHelp() {
     helpScreen.classList.add("fade-in");
 }
 
-// Close help & return to opening screen
+// Close help & return to opening screen (Fixed Bug)
 function closeHelp() {
     let helpScreen = document.getElementById("help-screen");
     let openingScreen = document.getElementById("opening-screen");
 
-    helpScreen.style.display = "none";
-    openingScreen.style.display = "flex";
-    openingScreen.classList.add("fade-in");
+    helpScreen.classList.remove("fade-in"); // Remove fade-in effect before hiding
+    setTimeout(() => {
+        helpScreen.style.display = "none";
+        openingScreen.style.display = "flex";
+        openingScreen.classList.add("fade-in");
+    }, 300);
 }
 
 // XP & Level System
