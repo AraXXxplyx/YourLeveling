@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Ensure only the opening screen is visible first
+    // Ensure only the opening screen is visible at first
     document.getElementById("opening-screen").style.display = "flex";
     document.getElementById("help-screen").style.display = "none";
     document.getElementById("dashboard").style.display = "none";
@@ -13,22 +13,18 @@ function startGame() {
     let statsContainer = document.getElementById("stats-container");
     let exerciseButtons = document.getElementById("exercise-buttons");
 
-    // Reset animation classes to ensure they play again
-    openingScreen.classList.remove("fade-in");
     openingScreen.classList.add("fade-out");
 
     setTimeout(() => {
         openingScreen.style.display = "none";
         dashboard.style.display = "flex";
-
-        dashboard.classList.remove("fade-out");
         dashboard.classList.add("fade-in");
 
-        // Show "Synchronizing stats..." for 2 seconds, then reveal stats
+        // Show "Synchronizing stats…" for 2 seconds, then reveal stats
         setTimeout(() => {
             loadingMessage.style.display = "none";
-            statsContainer.classList.remove("hidden");
-            exerciseButtons.classList.remove("hidden");
+            statsContainer.style.display = "block";
+            exerciseButtons.style.display = "block";
         }, 2000);
     }, 1000);
 }
@@ -40,9 +36,6 @@ function showHelp() {
 
     openingScreen.style.display = "none";
     helpScreen.style.display = "flex";
-
-    // Reset animation classes to ensure they play again
-    helpScreen.classList.remove("fade-out");
     helpScreen.classList.add("fade-in");
 }
 
@@ -51,16 +44,9 @@ function closeHelp() {
     let helpScreen = document.getElementById("help-screen");
     let openingScreen = document.getElementById("opening-screen");
 
-    helpScreen.classList.remove("fade-in");
-    helpScreen.classList.add("fade-out");
-
-    setTimeout(() => {
-        helpScreen.style.display = "none";
-        openingScreen.style.display = "flex";
-
-        openingScreen.classList.remove("fade-out");
-        openingScreen.classList.add("fade-in");
-    }, 500);
+    helpScreen.style.display = "none";
+    openingScreen.style.display = "flex";
+    openingScreen.classList.add("fade-in");
 }
 
 // XP & Level System
