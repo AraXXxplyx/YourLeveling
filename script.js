@@ -28,4 +28,3 @@ function gainXP(amount) {
         alert("🎉 You leveled up to Level " + level + "!");
     }
 }
-
