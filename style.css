@@ -1,70 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Leveling Fitness</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #111;
-            color: white;
-        }
-        h1 {
-            color: #ffcc00;
-        }
-        .level-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin: 20px auto;
-            width: 300px;
-            border-radius: 10px;
-        }
-        button {
-            background-color: #ffcc00;
-            color: #111;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #ff9900;
-        }
-    </style>
-</head>
-<body>
-    <h1>🔥 Your Leveling Fitness 🔥</h1>
-    <p>Train like a Hunter. Level up your strength.</p>
-    
-    <div class="level-box">
-        <h2 id="level-text">Level: 1</h2>
-        <p id="xp-text">XP: 0</p>
-    </div>
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1a001a;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    <button onclick="gainXP(10)">🏋️ 10 Push-Ups (+10 XP)</button>
-    <button onclick="gainXP(15)">🏃 15 Squats (+15 XP)</button>
-    <button onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
+/* Opening Screen */
+#opening-screen {
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+}
 
-    <script>
-        let xp = 0;
-        let level = 1;
+#opening-text {
+    font-size: 24px;
+    background: linear-gradient(90deg, #ff00ff, #9900cc);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0px 0px 8px rgba(255, 0, 255, 0.5);
+    animation: textGlow 1.5s infinite alternate;
+}
 
-        function gainXP(amount) {
-            xp += amount;
-            document.getElementById("xp-text").innerText = "XP: " + xp;
+/* Buttons */
+.button {
+    background-color: #800080;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
 
-            if (xp >= 100) {
-                level++;
-                xp = 0;
-                document.getElementById("level-text").innerText = "Level: " + level;
-                document.getElementById("xp-text").innerText = "XP: " + xp;
-                alert("🎉 You leveled up to Level " + level + "!");
-            }
-        }
-    </script>
-</body>
-</html>
+.button:hover {
+    background-color: #9900cc;
+    transform: scale(1.1);
+}
+
+/* Dashboard */
+#dashboard {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.level-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0px 0px 8px rgba(255, 0, 255, 0.5); }
+    to { text-shadow: 0px 0px 15px rgba(255, 0, 255, 1); }
+}
+
