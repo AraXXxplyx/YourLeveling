@@ -51,20 +51,75 @@
         .fade-active {
             opacity: 1;
         }
+        .hidden {
+            display: none;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 200px;
+        }
     </style>
     <script>
         function goToNextPage() {
             let fadeElement = document.getElementById('fade');
             fadeElement.classList.add('fade-active');
             setTimeout(() => {
-                document.body.innerHTML = '<div style="padding: 20px; color: white; font-size: 2rem; text-align: left;">Your rank is not decided yet</div>';
+                document.getElementById('main-content').classList.add('hidden');
+                document.getElementById('input-section').classList.remove('hidden');
             }, 1000);
+        }
+        
+        function submitStats() {
+            let height = parseInt(document.getElementById('height').value);
+            let weight = parseInt(document.getElementById('weight').value);
+            let pushups = parseInt(document.getElementById('pushups').value);
+            let squats = parseInt(document.getElementById('squats').value);
+            
+            let rank = "E";
+            if (pushups > 50 || squats > 50) rank = "D";
+            if (pushups > 100 || squats > 100) rank = "C";
+            if (pushups > 150 || squats > 150) rank = "B";
+            if (pushups > 200 || squats > 200) rank = "A";
+            if (pushups > 300 || squats > 300) rank = "S";
+            
+            document.getElementById('input-section').classList.add('hidden');
+            document.getElementById('rank-display').innerHTML = `Rank: ${rank} <br> Level: 1`;
+            document.getElementById('rank-section').classList.remove('hidden');
         }
     </script>
 </head>
 <body>
-    <div class="title">You have become a player</div>
-    <button class="button" onclick="goToNextPage()">Continue Grind</button>
+    <div id="main-content">
+        <div class="title">You have become a player</div>
+        <button class="button" onclick="goToNextPage()">Continue Grind</button>
+    </div>
+    
+    <div id="input-section" class="hidden">
+        <div class="title">Enter Your Stats</div>
+        <div class="input-container">
+            <label>Height (cm):</label>
+            <input type="number" id="height">
+            <label>Weight (kg):</label>
+            <input type="number" id="weight">
+            <label>Max Push-ups:</label>
+            <input type="number" id="pushups">
+            <label>Max Squats:</label>
+            <input type="number" id="squats">
+            <button class="button" onclick="submitStats()">Submit</button>
+        </div>
+    </div>
+    
+    <div id="rank-section" class="hidden">
+        <div class="title" id="rank-display"></div>
+    </div>
+    
     <div id="fade" class="fade-out"></div>
 </body>
 </html>
