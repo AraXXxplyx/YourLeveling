@@ -39,6 +39,74 @@
         }
     </style>
 </head>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grind Continues</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .title {
+            font-size: 2rem;
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+            margin-bottom: 50px;
+        }
+        .button {
+            background-color: transparent;
+            border: 2px solid cyan;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 50px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px cyan;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px cyan;
+        }
+        .fade-out {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.8), black);
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+        }
+    </style>
+    <script>
+        function goToNextPage() {
+            document.getElementById('fade').classList.add('hidden');
+            setTimeout(() => {
+                document.body.innerHTML = '<div style="padding: 20px; color: white; font-size: 2rem;">Your rank is not decided yet</div>';
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <div id="fade" class="fade-out"></div>
+    <div class="title">You have become a player</div>
+    <button class="button" onclick="goToNextPage()">Continue Grind</button>
+</body>
+</html>
+
 <body>
     <div class="title">You have become a player</div>
     <button class="button">Continue Grind</button>
