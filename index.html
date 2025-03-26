@@ -73,6 +73,9 @@
             setTimeout(() => {
                 document.getElementById('main-content').classList.add('hidden');
                 document.getElementById('input-section').classList.remove('hidden');
+                setTimeout(() => {
+                    fadeElement.classList.remove('fade-active');
+                }, 500); // Fog disappears after 0.5s
             }, 1000);
         }
         
