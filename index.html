@@ -72,22 +72,24 @@
             width: 200px;
         }
         .rank-text {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: purple;
             text-align: center;
             text-shadow: 0 0 20px purple;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .rank-title {
             font-size: 1.5rem;
             text-align: center;
             margin-bottom: 20px;
+            text-shadow: 0 0 10px;
         }
         .rank-display {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: cyan;
             text-align: center;
             text-shadow: 0 0 10px cyan;
+            margin-top: 20px;
         }
         .intel {
             font-size: 2rem;
@@ -121,7 +123,7 @@
             let title = "Weakest Hunter of All Humanity";
             let rankColor = "white";
             
-            if (totalScore > 100) { rank = "D"; title = "The Struggling Challenger"; rankColor = "green"; }
+            if (totalScore > 100) { rank = "D"; title = "The Struggling Challenger"; rankColor = "lightgreen"; }
             if (totalScore > 200) { rank = "C"; title = "Rising Warrior"; rankColor = "blue"; }
             if (totalScore > 300) { rank = "B"; title = "Elite Combatant"; rankColor = "purple"; }
             if (totalScore > 400) { rank = "A"; title = "Apex Hunter"; rankColor = "yellow"; }
@@ -130,6 +132,8 @@
             document.getElementById('input-section').classList.add('hidden');
             document.getElementById('rank-level').innerText = `Your Level is 1`;
             document.getElementById('rank-title').innerText = title;
+            document.getElementById('rank-title').style.color = rankColor;
+            document.getElementById('rank-title').style.textShadow = `0 0 10px ${rankColor}`;
             document.getElementById('rank-display').innerHTML = `${username}'s Rank: <span style="color: ${rankColor}; text-shadow: 0 0 10px ${rankColor};">${rank}</span>`;
             document.getElementById('rank-section').classList.remove('hidden');
         }
