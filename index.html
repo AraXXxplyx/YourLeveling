@@ -3,39 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Leveling</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Grind Continues</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .title {
+            font-size: 2rem;
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
+            margin-bottom: 50px;
+        }
+        .button {
+            background-color: transparent;
+            border: 2px solid cyan;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 50px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px cyan;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px cyan;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Opening Screen -->
-    <div id="opening-screen">
-        <h1 id="system-message">🔥 You have been chosen as a Player! 🔥</h1>
-        <h2 id="intro-text">Welcome to Your Leveling Dashboard</h2>
-        <p id="loading-message">Synchronizing stats...</p>
-        <button class="button" onclick="startGame()">▶ Continue</button>
-        <button class="button" onclick="showHelp()">❓ Help</button>
-    </div>
-
-    <!-- Dashboard -->
-    <div id="dashboard" class="hidden">
-        <h1>🏆 Your Leveling Dashboard</h1>
-        <p id="xp-text">XP: 0</p>
-        <p id="level-text">Level: 1</p>
-
-        <div id="exercise-buttons">
-            <button class="button" onclick="gainXP(10)">💪 10 Push-Ups (+10 XP)</button>
-            <button class="button" onclick="gainXP(20)">💥 20 Jumping Jacks (+20 XP)</button>
-        </div>
-    </div>
-
-    <!-- Help Screen -->
-    <div id="help-screen" class="hidden">
-        <h2>🆘 Help & Instructions</h2>
-        <p>Complete exercises to gain XP and level up. Press "Continue" to start.</p>
-        <button class="button" onclick="closeHelp()">🔙 Back</button>
-    </div>
-
-    <script src="script.js"></script>
+    <div class="title">You have become a player</div>
+    <button class="button">Continue Grind</button>
 </body>
 </html>
