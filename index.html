@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grind Continues</title>
+    <title>Rank Tester</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+        
         body {
             margin: 0;
             height: 100vh;
@@ -14,14 +16,14 @@
             align-items: center;
             flex-direction: column;
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Uncial Antiqua', cursive;
             overflow: hidden;
             position: relative;
         }
         .title {
             font-size: 2rem;
             color: cyan;
-            text-shadow: 0 0 10px cyan;
+            text-shadow: 0 0 15px cyan;
             margin-bottom: 50px;
         }
         .button {
@@ -33,11 +35,11 @@
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px cyan;
+            box-shadow: 0 0 15px cyan;
         }
         .button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 20px cyan;
+            box-shadow: 0 0 25px cyan;
         }
         .fade-out {
             position: absolute;
@@ -75,25 +77,23 @@
                 document.getElementById('input-section').classList.remove('hidden');
                 setTimeout(() => {
                     fadeElement.classList.remove('fade-active');
-                }, 500); // Fog disappears after 0.5s
+                }, 500);
             }, 1000);
         }
         
         function submitStats() {
-            let height = parseInt(document.getElementById('height').value);
-            let weight = parseInt(document.getElementById('weight').value);
             let pushups = parseInt(document.getElementById('pushups').value);
             let squats = parseInt(document.getElementById('squats').value);
             
-            let rank = "E";
-            if (pushups > 50 || squats > 50) rank = "D";
-            if (pushups > 100 || squats > 100) rank = "C";
-            if (pushups > 150 || squats > 150) rank = "B";
-            if (pushups > 200 || squats > 200) rank = "A";
-            if (pushups > 300 || squats > 300) rank = "S";
+            let rank = "A Lost Soul";
+            if (pushups > 50 || squats > 50) rank = "A Wandering Warrior";
+            if (pushups > 100 || squats > 100) rank = "A Rising Challenger";
+            if (pushups > 150 || squats > 150) rank = "A Battle-Hardened Knight";
+            if (pushups > 200 || squats > 200) rank = "A Legendary Gladiator";
+            if (pushups > 300 || squats > 300) rank = "A Mythic Champion";
             
             document.getElementById('input-section').classList.add('hidden');
-            document.getElementById('rank-display').innerHTML = `Rank: ${rank} <br> Level: 1`;
+            document.getElementById('rank-display').innerHTML = `Your rank has been calculated as <span style='color: cyan;'>${rank}</span> by the system.<br>You are currently <span style='color: cyan;'>Level 1</span>.`;
             document.getElementById('rank-section').classList.remove('hidden');
         }
     </script>
@@ -107,10 +107,6 @@
     <div id="input-section" class="hidden">
         <div class="title">Enter Your Stats</div>
         <div class="input-container">
-            <label>Height (cm):</label>
-            <input type="number" id="height">
-            <label>Weight (kg):</label>
-            <input type="number" id="weight">
             <label>Max Push-ups:</label>
             <input type="number" id="pushups">
             <label>Max Squats:</label>
