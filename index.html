@@ -39,6 +39,7 @@
             box-shadow: 0 0 15px cyan;
             display: block;
             margin: auto;
+            margin-top: 20px;
         }
         .button:hover {
             transform: scale(1.1);
@@ -71,10 +72,16 @@
             width: 200px;
         }
         .rank-text {
-            font-size: 2rem;
+            font-size: 3rem;
             color: purple;
             text-align: center;
-            text-shadow: 0 0 15px purple;
+            text-shadow: 0 0 20px purple;
+            margin-bottom: 10px;
+        }
+        .rank-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .rank-display {
             font-size: 1.5rem;
@@ -109,16 +116,21 @@
             let pushups = parseInt(document.getElementById('pushups').value);
             let squats = parseInt(document.getElementById('squats').value);
             
+            let totalScore = pushups + squats + (height / 10) + (weight / 20);
             let rank = "E";
-            if (pushups + squats + (height / 10) + (weight / 20) > 100) rank = "D";
-            if (pushups + squats + (height / 10) + (weight / 20) > 200) rank = "C";
-            if (pushups + squats + (height / 10) + (weight / 20) > 300) rank = "B";
-            if (pushups + squats + (height / 10) + (weight / 20) > 400) rank = "A";
-            if (pushups + squats + (height / 10) + (weight / 20) > 500) rank = "S";
+            let title = "Weakest Hunter of All Humanity";
+            let rankColor = "white";
+            
+            if (totalScore > 100) { rank = "D"; title = "The Struggling Challenger"; rankColor = "green"; }
+            if (totalScore > 200) { rank = "C"; title = "Rising Warrior"; rankColor = "blue"; }
+            if (totalScore > 300) { rank = "B"; title = "Elite Combatant"; rankColor = "purple"; }
+            if (totalScore > 400) { rank = "A"; title = "Apex Hunter"; rankColor = "yellow"; }
+            if (totalScore > 500) { rank = "S"; title = "The Awakened One"; rankColor = "red"; }
             
             document.getElementById('input-section').classList.add('hidden');
             document.getElementById('rank-level').innerText = `Your Level is 1`;
-            document.getElementById('rank-display').innerText = `${username}'s Rank: ${rank}`;
+            document.getElementById('rank-title').innerText = title;
+            document.getElementById('rank-display').innerHTML = `${username}'s Rank: <span style="color: ${rankColor}; text-shadow: 0 0 10px ${rankColor};">${rank}</span>`;
             document.getElementById('rank-section').classList.remove('hidden');
         }
     </script>
@@ -148,6 +160,7 @@
     
     <div id="rank-section" class="hidden">
         <div class="rank-text" id="rank-level"></div>
+        <div class="rank-title" id="rank-title"></div>
         <div class="rank-display" id="rank-display"></div>
     </div>
     
