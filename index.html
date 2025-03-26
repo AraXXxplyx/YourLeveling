@@ -72,20 +72,21 @@
             width: 200px;
         }
         .rank-text {
-            font-size: 3.5rem;
+            font-size: 4rem; /* Increased size for 'Your Level' */
             color: purple;
             text-align: center;
             text-shadow: 0 0 20px purple;
             margin-bottom: 5px;
+            margin-top: 20px; /* Added margin for spacing */
         }
         .rank-title {
-            font-size: 1.5rem;
+            font-size: 2rem; /* Increased title size */
             text-align: center;
             margin-bottom: 20px;
             text-shadow: 0 0 10px;
         }
         .rank-display {
-            font-size: 2rem;
+            font-size: 2.5rem; /* Slightly increased size for rank display */
             color: cyan;
             text-align: center;
             text-shadow: 0 0 10px cyan;
@@ -120,7 +121,7 @@
             
             let totalScore = pushups + squats + (height / 10) + (weight / 20);
             let rank = "E";
-            let title = "Weakest Hunter of All Humanity";
+            let title = "(Weakest Hunter of All Humanity)";
             let rankColor = "white";
             
             if (totalScore > 100) { rank = "D"; title = "(The Struggling Challenger)"; rankColor = "lightgreen"; }
@@ -131,6 +132,7 @@
             
             document.getElementById('input-section').classList.add('hidden');
             document.getElementById('rank-level').innerText = `Your Level is 1`;
+            document.getElementById('rank-level').style.fontSize = '3.5rem'; /* Adjusted font size */
             document.getElementById('rank-title').innerText = title;
             document.getElementById('rank-title').style.color = rankColor;
             document.getElementById('rank-title').style.textShadow = `0 0 10px ${rankColor}`;
