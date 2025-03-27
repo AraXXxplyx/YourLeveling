@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Tester</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .title {
+            font-size: 2rem;
+            color: cyan;
+            text-shadow: 0 0 15px cyan;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .button {
+            background-color: transparent;
+            border: 2px solid cyan;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 50px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px cyan;
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px cyan;
+        }
+        .fade-out {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.8), black);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
+        .fade-active {
+            opacity: 1;
+        }
+        .hidden {
+            display: none;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            width: 200px;
+        }
+        .rank-text {
+            font-size: 4rem; /* Increased size for 'Your Level' */
+            color: purple;
+            text-align: center;
+            text-shadow: 0 0 20px purple;
+            margin-bottom: 5px;
+            margin-top: 20px; /* Added margin for spacing */
+        }
+        .rank-title {
+            font-size: 2rem; /* Increased title size */
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px;
+        }
+        .rank-display {
+            font-size: 2.5rem; /* Slightly increased size for rank display */
+            color: cyan;
+            text-align: center;
+            text-shadow: 0 0 10px cyan;
+            margin-top: 20px;
+        }
+        .intel {
+            font-size: 2rem;
+            color: purple;
+            text-align: center;
+            text-shadow: 0 0 15px purple;
+        }
+    </style>
+    <script>
+        function goToNextPage() {
+            let fadeElement = document.getElementById('fade');
+            fadeElement.classList.add('fade-active');
+            setTimeout(() => {
+                document.getElementById('main-content').classList.add('hidden');
+                document.getElementById('input-section').classList.remove('hidden');
+                setTimeout(() => {
+                    fadeElement.classList.remove('fade-active');
+                }, 500);
+            }, 1000);
+        }
+        
+        function submitStats() {
+            let username = document.getElementById('username').value;
+            let height = parseInt(document.getElementById('height').value);
+            let weight = parseInt(document.getElementById('weight').value);
+            let pushups = parseInt(document.getElementById('pushups').value);
+            let squats = parseInt(document.getElementById('squats').value);
+            
+            let totalScore = pushups + squats + (height / 10) + (weight / 20);
+            let rank = "E";
+            let title = "(Weakest Hunter of All Humanity)";
+            let rankColor = "white";
+            
+            if (totalScore > 100) { rank = "D"; title = "(The Struggling Challenger)"; rankColor = "lightgreen"; }
+            if (totalScore > 200) { rank = "C"; title = "(Rising Warrior)"; rankColor = "blue"; }
+            if (totalScore > 300) { rank = "B"; title = "(Elite Combatant)"; rankColor = "purple"; }
+            if (totalScore > 400) { rank = "A"; title = "[Apex Hunter]"; rankColor = "yellow"; }
+            if (totalScore > 500) { rank = "S"; title = "The Awakened One"; rankColor = "red"; }
+            
+            document.getElementById('input-section').classList.add('hidden');
+            document.getElementById('rank-level').innerText = `Your Level is 1`;
+            document.getElementById('rank-level').style.fontSize = '3.5rem'; /* Adjusted font size */
+            document.getElementById('rank-title').innerText = title;
+            document.getElementById('rank-title').style.color = rankColor;
+            document.getElementById('rank-title').style.textShadow = `0 0 10px ${rankColor}`;
+            document.getElementById('rank-display').innerHTML = `${username}'s Rank: <span style="color: ${rankColor}; text-shadow: 0 0 10px ${rankColor};">${rank}</span>`;
+            document.getElementById('rank-section').classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div id="main-content">
+        <div class="title">You have become a player</div>
+        <button class="button" onclick="goToNextPage()">Continue Grind</button>
+    </div>
+    
+    <div id="input-section" class="hidden">
+        <div class="intel">The System Demands Intel</div>
+        <div class="input-container">
+            <label>Enter Your Username:</label>
+            <input type="text" id="username">
+            <label>Height (cm):</label>
+            <input type="number" id="height">
+            <label>Weight (kg):</label>
+            <input type="number" id="weight">
+            <label>Max Push-ups:</label>
+            <input type="number" id="pushups">
+            <label>Max Squats:</label>
+            <input type="number" id="squats">
+            <button class="button" onclick="submitStats()">Show Rank</button>
+        </div>
+    </div>
+    
+    <div id="rank-section" class="hidden">
+        <div class="rank-text" id="rank-level"></div>
+        <div class="rank-title" id="rank-title"></div>
+        <div class="rank-display" id="rank-display"></div>
+    </div>
+    
+    <div id="fade" class="fade-out"></div>
+</body>
+</html>
